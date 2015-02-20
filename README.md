@@ -82,7 +82,7 @@ Creates a new post, translated to a specific language.
 ##### Parameters
  * title (`String`) the title of the post
  * content (`String`) the content of the post, e.g. in german or english
- * languageCode (`String`) the code of the language of the written content and title, e.g. "de" or "en"; must be present in Language-List
+ * languageId (`ObjectId`) the id of the language (id-of-some-language) in that the title and content are written
 
 ##### Response (success)
 ```javascript
@@ -91,8 +91,54 @@ Creates a new post, translated to a specific language.
 
 ##### Errors
  * error.permission.post.canAdd - permission "post.canAdd" is required in order to create a post
- * error.language.unknown - no language could be found for that languageCode
 
+
+
+#### GET /PostList
+Lists all posts currently existing, newest first.
+
+##### Parameters
+ * offset (`Number`, optional) "0" to start on the first (newest) message, "9" to start on the tenth aso
+ * amount (`Number`, default 20) maximum amount of posts that should be responded
+ * parent (`ObjectId`, optional) if given, will only return comments that reply to this post
+
+##### Response (success)
+```javascript
+{
+	status: 'success',
+	data: {
+		posts: [
+			{
+				_id: 'some-id-for-this-post',
+				title: 'language.variable.for.the.title',
+				content: 'language.variable.for.this.content',
+				author: 'some-id-of-the-author-of-this-post',
+				time: 4189374982374, // timestamp, as milliseconds since 1980 - see UNIX timestamp
+				parent: 'some-id-of-the-parent-post', // if this is a comment
+				language: 'some-language-id' // if this is a comment and therefore not multilingual
+			}
+		]
+	}
+}
+```
+
+
+#### POST /PostTranslate
+Translate an existing post.
+
+##### Parameters
+ * languageId (`ObjectId`) the id of the language (id-of-some-language) you want to translate this post into
+ * postId (`ObjectId`) the id of the post
+ * title (`String`) the translation for the title
+ * content (`String`) the translation for the content
+
+##### Response (success)
+```javascript
+{status: 'success'}
+```
+
+##### Errors
+ * error.permission.post.canTranslate - permission "post.canTranslate" is required and the logged-in user (if any) doesn't have it
 
 User
 ----
