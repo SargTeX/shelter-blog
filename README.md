@@ -28,6 +28,8 @@ Every request is responded either successfully or with an error. Error responds 
 }
 ```
 
+Keep in mind, that errors may occur on **any** request. Even those, where specific errors are not mentioned within the documentation.
+
 Successfull responds look like this:
 ```javascript
 {
@@ -70,6 +72,132 @@ Retrieves a complete list of all languages.
 	}
 }
 ```
+
+
+
+Menu
+----
+
+#### GET /MenuList
+Retrieves a list containing information about all menues.
+
+##### Response (success)
+```javascript
+{
+	status: 'success',
+	data: {
+		menus: [
+			{
+				_id: 'some-id-of-the-menu',
+				code: 'menu.main',
+				title: 'menu.data.title.some-id-of-the-menu'
+			},
+			// ...
+		]
+	}
+}
+```
+
+
+#### POST /MenuAdd
+Creates a new menu and translates it into some language.
+
+##### Parameters
+ * code (`String`) some code identifying the menu, unique, in reverse-domain-style; e.g. "menu.main", "menu.home.column-3" aso
+ * title (`String`) translated title of the menu
+ * languageId (`ObjectId`) id of the language of the title
+
+##### Response (success)
+```javascript
+{status: 'success'}
+```
+
+##### Errors
+ * error.permission.menu.canAdd - if the user doesn't have the permission to add a menu
+
+
+
+#### POST /MenuTranslate
+Translates an existing menu.
+
+##### Parameters
+ * menuId (`ObjectId`) id of the menu that will be translated
+ * languageId (`ObjectId`) id of the language the title of the menu will be translated to
+ * title (`String`) the translated title
+
+##### Respond (success)
+```javascript
+{status: 'success'}
+```
+
+##### Errors
+ * error.permission.menu.canTranslate - users have to own the permission "menu.canTranslate" in order to call this controller
+
+
+
+MenuItem
+--------
+
+#### GET /MenuItem
+Lists all menu items from a specified menu, ordered by the given position.
+
+##### Parameters
+ * menuId (`ObjectId`) the id of the menu where the items shall be listed
+
+##### Response (success)
+```javascript
+{
+	status: 'success',
+	data: {
+		items: [
+			{
+				_id: 'some-id-as-uuid',
+				menu: 'some-id-of-the-menu',
+				title: 'menuItem.data.title.some-id-as-uuid',
+				position: 0,
+				target: '/MyLink'
+			},
+			// ...
+		]
+	}
+}
+```
+
+
+#### POST /MenuItemAdd
+Creates a new menu item and translates it to the specified language.
+
+##### Parameters
+ * menuId (`ObjectId`) id of the menu this item is related to
+ * languageId (`ObjectId`) id of the language in that the title is given
+ * position (`Number`) the position (zero-based) of this item, in relation to all other positions
+ * target (`String`) some link that will be opened on item click
+ * title (`String`) the translated title
+
+##### Response (success)
+```javascript
+{status: 'success'}
+```
+
+##### Errors
+ * error.permission.menuItem.canAdd - users have to own the permission "menuItem.canAdd"
+
+
+#### POST /MenuItemTranslate
+Translates an existing menu item in some language.
+
+##### Parameters
+ * itemId (`ObjectId`) the id of the menu item that will be translated
+ * languageId (`ObjectId`) the id of the language
+ * title (`String`) the translated title
+
+##### Response (success)
+```javascript
+{status: 'success'}
+```
+
+##### Errors
+ * error.permission.menuItem.canTranslate - users have to own the permission "menuItem.canTranslate"
 
 
 
