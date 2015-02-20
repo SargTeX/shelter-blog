@@ -1,0 +1,11 @@
+{
+	"name": "shelter-blog",
+	"description": "Node.JS blogging software, written for the shelter project",
+	"version": "0.0.1",
+	"dependencies": {
+		"async": "*",
+		"bcrypt": "*",
+		"express": "*",
+		"mongoose": "*"
+	}
+}
