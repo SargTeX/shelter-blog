@@ -1,6 +1,8 @@
 # shelter-blog
 Node.JS blogging software for the Shelter Project. Focus is on multi-language-content.
 
+Currently, this is completely **WORK IN PROGRESS**.
+
 Features
 ========
 
@@ -15,7 +17,7 @@ General Use
 All requests are done in HTTP. All responds are in JSON. GET-Parameters are added to the url, POST-Parameters are send within the body.
 
 Every request is responded either successfully or with an error. Error responds look like this:
-```json
+```javascript
 {
 	status: 'error',
 	errors: [
@@ -27,7 +29,7 @@ Every request is responded either successfully or with an error. Error responds 
 ```
 
 Successfull responds look like this:
-```json
+```javascript
 {
 	status: 'success',
 	data: {
@@ -50,6 +52,6 @@ Creates a new post, translated to a specific language.
 	* languageCode (`String`) the code of the language of the written content and title, e.g. "de" or "en"; must be present in Language-List
 
 ##### Response (success)
-```json
+```javascript
 {status: 'success'}
 ```
