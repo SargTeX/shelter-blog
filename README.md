@@ -34,15 +34,15 @@ Successfull responds look like this:
 Post
 ----
 
-# POST /PostAdd
+#### POST /PostAdd
 Creates a new post, translated to a specific language.
 
-## Parameters
+##### Parameters
 	* title (`String`) the title of the post
 	* content (`String`) the content of the post, e.g. in german or english
 	* languageCode (`String`) the code of the language of the written content and title, e.g. "de" or "en"; must be present in Language-List
 
-## Response (success)
+##### Response (success)
 ```
 {status: 'success'}
 ```
