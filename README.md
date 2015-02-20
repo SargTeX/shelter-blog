@@ -15,12 +15,19 @@ General Use
 All requests are done in HTTP. All responds are in JSON. GET-Parameters are added to the url, POST-Parameters are send within the body.
 
 Every request is responded either successfully or with an error. Error responds look like this:
-```
-{status: 'error', errors: ['Some error message', 'Here might be another error message', 'only.some.language.var.code']}
+```json
+{
+	status: 'error',
+	errors: [
+		'Some error message',
+		'Here might be another error message',
+		'only.some.language.var.code'
+	]
+}
 ```
 
 Successfull responds look like this:
-```
+```json
 {
 	status: 'success',
 	data: {
@@ -43,6 +50,6 @@ Creates a new post, translated to a specific language.
 	* languageCode (`String`) the code of the language of the written content and title, e.g. "de" or "en"; must be present in Language-List
 
 ##### Response (success)
-```
+```json
 {status: 'success'}
 ```
