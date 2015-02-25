@@ -52,7 +52,7 @@ exports.setup = function(app) {
 					else variable = new LanguageVariable({
 						name: 'menu.data.title.'+req.param('menuId'),
 						language: req.param('languageId'),
-						translation: req.param('title');
+						translation: req.param('title')
 					});
 
 					variable.save(function(err) {

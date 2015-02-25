@@ -5,6 +5,7 @@
 	"dependencies": {
 		"async": "*",
 		"bcrypt": "*",
+		"body-parser": "*",
 		"express": "*",
 		"mongoose": "*"
 	}

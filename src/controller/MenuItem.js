@@ -60,7 +60,7 @@ exports.setup = function(app) {
 						name: 'menu.item.data.title'+req.param('itemId'),
 						language: req.param('languageId'),
 						translation: req.param('title')
-					});,
+					});
 
 					variable.save(function(err) {
 						if (err) return jump(err);
