@@ -313,3 +313,53 @@ Tries to login the user into that user account and to create a session.
 
 ##### Errors
  * error.userLogin.fail - the attempt to login fail (either user not found, or password incorrect)
+
+
+
+Usergroup
+---------
+
+#### GET /UsergroupList
+Returns a list of all usergroups.
+
+##### Response (success)
+```javascript
+{
+	status: 'success',
+	data: {
+		groups: [
+			{name: 'usergroup-1'},
+			// ...
+		]
+	}
+}
+```
+
+
+#### POST /UsergroupAdd
+Creates a new usergroup.
+
+##### Parameters
+ * name (`String`) the name of the usergroup (has to be unique, may be a language variable)
+ * code (`String`, optional) some unique string that's used to build the language variable - otherwise, the id is taken
+ * languageId (`ObjectId`) the id of the language this usergroup is written in
+
+##### Errors
+ * error.usergroup.name.exists - the name of the usergroup is already taken of another usergroup
+
+
+#### POST /UsergroupTranslate
+Translates an existing usergroup.
+
+##### Parameters
+ * usergroupId (`ObjectId`) the id of the usergroup that is being edited
+ * languageId (`ObjectId`) the id of the language the group is being translated to
+ * name (`String`) the translated name
+
+##### Response (success)
+```javascript
+{status: 'success'}
+```
+
+##### Errors
+ * error.usergroup.unknown - usergroup could not been found

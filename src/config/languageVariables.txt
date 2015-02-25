@@ -2,6 +2,8 @@ error.language.unknown	de	Die Sprache ist uns leider nicht bekannt.
 error.permission.post.canAdd	de	Du darfst keine Beiträge erstellen.
 error.permission.post.canTranslate	de	Du darfst keine Beiträge übersetzen.
 error.user.username.exists	de	Der Benutzername ist bereits vergeben.
+error.usergroup.name.exists	de	Der Benutzergruppenname ist bereits vergeben.
+error.usergroup.unknown	de	Die Benutzergruppe konnte nicht gefunden werden.
 error.userLogin.fail	de	Die Kombination aus Benutzername und Password ist nicht bekannt.
 language.de	de	Deutsch
 language.de	en	German
