@@ -1,0 +1,23 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/shelter-blog\/src\/template\/css\/stylesheet\.scss}line{font-family:\000038}}
+body {
+  min-height: 200vh;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/shelter-blog\/src\/template\/css\/stylesheet\.scss}line{font-family:\0000312}}
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/shelter-blog\/src\/template\/css\/stylesheet\.scss}line{font-family:\0000317}}
+.font-centered {
+  text-align: center;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/xampp\/htdocs\/shelter-blog\/src\/template\/css\/stylesheet\.scss}line{font-family:\0000320}}
+.banner {
+  background-image: url(http://dummyimage.com/1920x400);
+  min-height: 40vh;
+}
+
+/*# sourceMappingURL=stylesheet.css.map */

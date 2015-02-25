@@ -1,0 +1,23 @@
+$c0: #333333;
+$c1: #555555;
+$c2: #888888;
+$c3: #aaaaaa;
+$c4: #cccccc;
+$c5: #eeeeee;
+
+body {
+	min-height: 200vh;
+}
+
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
+.font-centered {
+	text-align: center;
+}
+.banner {
+	background-image: url(http://dummyimage.com/1920x400);
+	min-height: 40vh;
+}
