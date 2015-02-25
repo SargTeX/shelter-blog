@@ -1,7 +1,7 @@
 var respond = require('../tool/respond.js');
 
 exports.setup = function(app) {
-	app.post('/PostAdd', function(req, res, jump) {
+	app.get('/PostAdd', function(req, res, jump) {
 		res.locals.session.user.hasPermission('post.canAdd', function(err, has) {
 			if (err) return jump(err);
 			if (!has) return respond(req, res, null, 'error.permission.post.canAdd');
@@ -60,7 +60,7 @@ exports.setup = function(app) {
 	});
 
 
-	app.post('/PostTranslate', function(req, res, jump) {
+	app.get('/PostTranslate', function(req, res, jump) {
 		res.locals.session.user.hasPermission('post.canTranslate', function(err, has) {
 			if (err) return jump(err);
 			if (!has) return respond(req, res, null, 'error.permission.post.canTranslate');

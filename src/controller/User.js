@@ -3,7 +3,7 @@ var respond = require('../tool/respond.js'),
 	User = require('../model/User.js');
 
 exports.setup = function(app) {
-	app.post('/UserLogin', function(req, res, jump) {
+	app.get('/UserLogin', function(req, res, jump) {
 		User.findOne({username: req.param('username')})
 			.exec(function(err, user) {
 				if (err) return jump(err);
@@ -25,7 +25,7 @@ exports.setup = function(app) {
 			});
 	});
 
-	app.post('/UserAdd', function(req, res, jump) {
+	app.get('/UserAdd', function(req, res, jump) {
 		User.findOne({username: req.param('username')})
 			.exec(function(err, user) {
 				if (err) return jump(err);

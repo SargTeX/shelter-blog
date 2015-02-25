@@ -1,3 +1,4 @@
+error.language.code.exists	de	Der Sprachcode ist bereits vergeben.
 error.language.unknown	de	Die Sprache ist uns leider nicht bekannt.
 error.permission.post.canAdd	de	Du darfst keine Beiträge erstellen.
 error.permission.post.canTranslate	de	Du darfst keine Beiträge übersetzen.

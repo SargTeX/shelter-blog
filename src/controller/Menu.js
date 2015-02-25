@@ -13,7 +13,7 @@ exports.setup = function(app) {
 			});
 	});
 
-	app.post('/MenuAdd', function(req, res, jump) {
+	app.get('/MenuAdd', function(req, res, jump) {
 		res.locals.session.user.hasPermission('menu.canAdd', function(err, has) {
 			if (err) return jump(err);
 			if (!has) return respond(req, res, null, 'error.permission.menu.canAdd');
@@ -40,7 +40,7 @@ exports.setup = function(app) {
 		});
 	});
 
-	app.post('/MenuTranslate', function(req, res, jump) {
+	app.get('/MenuTranslate', function(req, res, jump) {
 		res.locals.session.user.hasPermission('menu.canTranslate', function(err, has) {
 			if (err) return jump(err);
 			if (!has) return respond(req, res, null, 'error.permission.menu.canTranslate');

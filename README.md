@@ -3,6 +3,8 @@ Node.JS blogging software for the Shelter Project. Focus is on multi-language-co
 
 Currently, this is completely **WORK IN PROGRESS**.
 
+Temporarily, all **POST-Controllers** are available via **GET-Requests**.
+
 Features
 ========
 
@@ -73,6 +75,22 @@ Retrieves a complete list of all languages.
 }
 ```
 
+#### POST /LanguageAdd
+
+##### Parameters
+ * languageId (`String`) the id of the language the name is translated in
+ * code (`String`) an code identifying the language for programmers (like 'en', 'de', 'fr', ...)
+ * name (`String`) the translated name for the language
+
+##### Response (`success`)
+```javascript
+{
+	status: 'success',
+	data: {
+		languageId: 'the-id-of-the-created-language'
+	}
+}
+```
 
 
 Menu

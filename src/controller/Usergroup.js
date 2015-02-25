@@ -1,4 +1,5 @@
-var respond = require('../tool/respond.js'),
+var async = require('async'),
+	respond = require('../tool/respond.js'),
 	Usergroup = require('../model/Usergroup.js');
 
 exports.setup = function(app) {
@@ -11,7 +12,7 @@ exports.setup = function(app) {
 			});
 	});
 
-	app.post('/UsergroupAdd', function(req, res, jump) {
+	app.get('/UsergroupAdd', function(req, res, jump) {
 		var usergroup = new Usergroup({name: 'usergroup.data.name.'+req.param('code') ? req.param('code') : ''});
 		if (!req.param('code')) usergroup.name += usergroup._id;
 		var languageVariable = new LanguageVariable({name: usergroup.name, language: req.param('languageId')});
@@ -31,7 +32,7 @@ exports.setup = function(app) {
 			});
 	});
 
-	app.post('/UsergroupTranslate', function(req, res, jump) {
+	app.get('/UsergroupTranslate', function(req, res, jump) {
 		Usergroup.findById(req.param('usergroupId'))
 			.exec(function(err, group) {
 				if (err) return jump(err);
