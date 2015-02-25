@@ -5,7 +5,7 @@ var bodyParser = require('body-parser'),
 var app = express();
 
 // connect to database
-db.connect('mongodb://'+config.db.IP+':'+config.db.PORT);
+db.connect('mongodb://'+config.db.IP+':'+config.db.PORT+'/'+config.db.DATABASE);
 
 // configure webserver
 app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}));
