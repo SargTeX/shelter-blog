@@ -1,7 +1,9 @@
 var bodyParser = require('body-parser'),
 	config = require('./config/config.js'),
 	db = require('mongoose'),
-	express = require('express');
+	express = require('express'),
+	fs = require('fs'),
+	jade = require('jade');
 var app = express();
 
 // connect to database
@@ -38,6 +40,7 @@ app.use(function(req, res, next) {
 
 // add controllers to server
 [
+	'Home',
 	'Language',
 	'Menu',
 	'MenuItem',
