@@ -9,6 +9,32 @@ db.connect('mongodb://'+config.db.IP+':'+config.db.PORT+'/'+config.db.DATABASE);
 
 // configure webserver
 app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}));
+app.use("/css", express.static("./template/css"));
+
+// enable autorendering templates
+app.use(function(req, res, next) {
+	var send = res.send.bind(res);
+	res.send = function(content) {
+		if (typeof content === 'string') return send(content);
+		if (!content.template) return send(content);
+		if (!content.hasOwnProperty('data')) content.data = {};
+		if (content.status == 'success' && !content.data.hasOwnProperty('status')) content.data.status = 'success';
+		if (req.query.sessionId && res.locals.session && !content.data.hasOwnProperty('sessionId')) content.data.sessionId = req.query.sessionId;
+		console.log(content);
+
+		fs.readFile('./template/'+content.template+'.jade', function(err, tpl) {
+			if (err) {
+				console.log(err);
+				return send('bambambam... error, sry pplz');
+			}
+
+			var fn = jade.compile(tpl, {filename: './template/'+content.template+'.jade'});
+			var response = fn(content);
+			send(response);
+		});
+	};
+	next();
+});
 
 // add controllers to server
 [

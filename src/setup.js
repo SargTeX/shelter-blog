@@ -4,6 +4,11 @@ var async = require('async'),
 	Language = require('./model/Language.js'),
 	LanguageVariable = require('./model/LanguageVariable.js');
 
+var permissions = [
+	'menu.canAdd', 'menu.canTranslate', 'menuItem.canAdd', 'menuItem.canTranslate',
+	'post.canAdd', 'post.canTranslate'
+];
+
 async.parallel([
 	function(next) {
 		fs.readFile('./config/languageVariables.txt', function(err, content) {
