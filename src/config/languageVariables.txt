@@ -1,14 +1,22 @@
-error.language.code.exists	de	Der Sprachcode ist bereits vergeben.
-error.language.unknown	de	Die Sprache ist uns leider nicht bekannt.
-error.permission.post.canAdd	de	Du darfst keine Beiträge erstellen.
-error.permission.post.canTranslate	de	Du darfst keine Beiträge übersetzen.
-error.user.username.exists	de	Der Benutzername ist bereits vergeben.
-error.usergroup.name.exists	de	Der Benutzergruppenname ist bereits vergeben.
-error.usergroup.unknown	de	Die Benutzergruppe konnte nicht gefunden werden.
-error.userLogin.fail	de	Die Kombination aus Benutzername und Password ist nicht bekannt.
-language.de	de	Deutsch
-language.de	en	German
-language.en	de	Englisch
-language.en	en	English
-permission.unknown	de	Die Berechtigung ist nicht bekannt.
-permission.unknown	en	The permission you requested is not known.
+de	error.language.code.exists	Der Sprachcode ist bereits vergeben.
+de	error.language.unknown	Die Sprache ist uns leider nicht bekannt.
+de	error.permission.post.canAdd	Du darfst keine Beiträge erstellen.
+de	error.permission.post.canTranslate	Du darfst keine Beiträge übersetzen.
+de	error.user.username.exists	Der Benutzername ist bereits vergeben.
+de	error.usergroup.name.exists	Der Benutzergruppenname ist bereits vergeben.
+de	error.usergroup.unknown	Die Benutzergruppe konnte nicht gefunden werden.
+de	error.userLogin.fail	Die Kombination aus Benutzername und Password ist nicht bekannt.
+de	language.de	Deutsch
+en	language.de	German
+de	language.en	Englisch
+en	language.en	English
+de	menu.home	Startseite
+de	menu.language.list	Sprachen
+de	menu.post.list	Beiträge
+de	menu.user.add	Registrieren
+de	menu.user.list	Benutzer
+de	menu.user.login	Anmelden
+de	menu.usergroup.list	Benutzergruppen
+de	permission.unknown	Die Berechtigung ist nicht bekannt.
+en	permission.unknown	The permission you requested is not known.
+de	success.usergroup.delete	Die Benutzergruppe wurde erfolgreich gelöscht.

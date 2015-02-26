@@ -1,0 +1,12 @@
+include ./header.jade
+
+h1 Übersetze "#{lang(data.name)}"
+
+each language in data.languages
+	form(method="POST" action="/LanguageVariableTranslate?sessionId=#{data.sessionId}")
+		div.field
+			label #{lang(language.name)}
+			input(type="text" name="translation" value="#{lang(data.name, language._id)}")
+			input(type="hidden" name="languageId" value="#{language._id}")
+			input(type="hidden" name="name" value="#{data.name}")
+			input(type="submit" value="Abspeichern")

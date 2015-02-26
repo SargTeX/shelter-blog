@@ -1,0 +1,14 @@
+include ./header.jade
+
+h1 Benutzergruppe erstellen
+
+include ./errors.jade
+
+if status == 'success'
+	p.success Benutzergruppe "#{lang(data.usergroup.name)}" wurde erfolgreich erstellt.
+
+form(method="POST" action="/UsergroupAdd?sessionId=#{data.sessionId}")
+	div.field
+		label Name
+		input(type="text" name="name")
+	input(type="submit" name="Erstellen")

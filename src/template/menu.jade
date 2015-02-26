@@ -8,10 +8,10 @@ ul.menu
 			a(href="/UserAdd") #{lang('menu.user.add')}
 	else
 		li
-			a(href="/LanguageList") #{lang('menu.language.list')}
+			a(href="/LanguageList?sessionId=#{data.sessionId}") #{lang('menu.language.list')}
 		li
-			a(href="/UsergroupList") #{lang('menu.usergroup.list')}
+			a(href="/UsergroupList?sessionId=#{data.sessionId}") #{lang('menu.usergroup.list')}
 		li
-			a(href="/UserList") #{lang('menu.user.list')}
+			a(href="/UserList?sessionId=#{data.sessionId}") #{lang('menu.user.list')}
 		li
-			a(href="/PostList") #{lang('menu.post.list')}
+			a(href="/PostList?sessionId=#{data.sessionId}") #{lang('menu.post.list')}

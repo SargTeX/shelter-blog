@@ -1,6 +1,6 @@
 module.exports = {
 	db: {
-		DATABASE: 'shelter-blog',
+		NAME: 'shelter-blog',
 		IP: '37.120.171.46',
 		PORT: 27017
 	},
