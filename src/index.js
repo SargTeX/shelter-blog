@@ -16,6 +16,7 @@ app.use("/css", express.static("./template/css"));
 // enable autorendering templates
 app.use(function(req, res, next) {
 	var send = res.send.bind(res);
+	res.writeHead({'Access-Control-Allow-Origin': '*'});
 	res.send = function(content) {
 		if (typeof content === 'string') return send(content);
 		if (!content.template) return send(content);
@@ -24,13 +25,13 @@ app.use(function(req, res, next) {
 		if (req.query.sessionId && res.locals.session && !content.data.hasOwnProperty('sessionId')) content.data.sessionId = req.query.sessionId;
 		console.log(content);
 
-		fs.readFile('./template/'+content.template+'.jade', function(err, tpl) {
+		fs.readFile('./template/client/'+content.template+'.jade', function(err, tpl) {
 			if (err) {
 				console.log(err);
 				return send('bambambam... error, sry pplz');
 			}
 
-			var fn = jade.compile(tpl, {filename: './template/'+content.template+'.jade'});
+			var fn = jade.compile(tpl, {filename: './template/client/'+content.template+'.jade'});
 			var response = fn(content);
 			send(response);
 		});
