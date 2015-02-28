@@ -1,3 +1,17 @@
 ul.menu
 	li
-		a(href="/") Startseite
+		a(href="/") #{lang('menu.home')}
+	if !data.session || !data.session.user
+		li
+			a(href="/UserLogin") #{lang('menu.user.login')}
+		li
+			a(href="/UserAdd") #{lang('menu.user.add')}
+	else
+		li
+			a(href="/LanguageList?sessionId=#{data.sessionId}") #{lang('menu.language.list')}
+		li
+			a(href="/UsergroupList?sessionId=#{data.sessionId}") #{lang('menu.usergroup.list')}
+		li
+			a(href="/UserList?sessionId=#{data.sessionId}") #{lang('menu.user.list')}
+		li
+			a(href="/PostList?sessionId=#{data.sessionId}") #{lang('menu.post.list')}

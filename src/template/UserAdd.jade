@@ -1,0 +1,21 @@
+include ./header.jade
+
+h1 Registrieren
+include ./errors.jade
+
+if status == 'success'
+	p.success Du hast dich erfolgreich registriert.
+
+form(method="POST" action="/UserAdd?sessionId=#{data.sessionId}")
+	div.field
+		label Benutzername
+		input(type="text" name="username")
+	div.field
+		label Passwort
+		input(type="password" name="password")
+	div.field
+		label E-Mail
+		input(type="email" name="email")
+	div.field
+		label Sprache
+	input(type="submit" value="Registrieren")
