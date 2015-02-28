@@ -43,6 +43,7 @@ Language.findOne({default: true})
 app.use(function(req, res, next) {
 	var send = res.send.bind(res);
 	res.send = function(content) {
+		res.header('Access-Control-Allow-Origin', '*');
 		if (typeof content === 'string') return send(content);
 		if (!content.template) return send(content);
 		if (!content.hasOwnProperty('data')) content.data = {};
