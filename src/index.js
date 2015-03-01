@@ -16,8 +16,8 @@ app.use("/css", express.static("./template/css"));
 // enable autorendering templates
 app.use(function(req, res, next) {
 	var send = res.send.bind(res);
-	res.writeHead({'Access-Control-Allow-Origin': '*'});
 	res.send = function(content) {
+		res.header({'Access-Control-Allow-Origin': '*'});
 		if (typeof content === 'string') return send(content);
 		if (!content.template) return send(content);
 		if (!content.hasOwnProperty('data')) content.data = {};
