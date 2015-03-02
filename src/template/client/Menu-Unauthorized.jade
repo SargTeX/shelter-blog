@@ -1,0 +1,43 @@
+.menu-unauthorized#menu
+    nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
+        .container
+            .navbar-header
+                a.navbar-brand(href="index.html") Project Shelter
+            #navbar.navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    li
+                        a(href="browse.html") Browse
+                    li 
+                        a(href="#") About Us
+                    li
+                        a(href="#") Contact
+                ul.nav.navbar-nav.navbar-right
+                    li.dropdown#nav-dropdown
+                        a.dropdown-toggle#login-nav-dropdown(href="#" data-toggle="dropdown" role="button" aria-expanded="false")
+                            span.glyphicon.glyphicon-log-in  LogIn
+                            span.caret
+                        ul.dropdown-menu#login-dropdown(role="menu")
+
+                            div(ng-controller="LoginCtrl")
+                                ul.nav.nav-tabs#tabs(data-tabs="tabs")
+                                    li.active(role="presentation")
+                                        a(href="#login-tab" data-toggle="tab") Log In
+                                    li(role="presentation")
+                                        a(href="#signup-tab" data-toggle="tab") Sign Up
+                                .tab-content#tab-content
+                                    .tab-pane.active#login-tab
+                                        form.form-signin#login-form(role="form" ng-submit="processLogin()")
+
+                                            .input-group.input-group-lg#login-name
+                                                span.input-group-addon
+                                                    span.glyphicon.glyphicon-user
+                                                input.form-control#loginName(type="text" placeholder="Email / Nickname" ng-model="user.login" required)
+                                            .input-group.input-group-lg#login-password
+                                                span.input-group-addon
+                                                    span.glyphicon.glyphicon-lock
+                                                input.form-control#loginPassword(type="password" placeholder="Password" ng-model="user.password" required)
+                                            .input-group.input-group-lg
+                                                button.btn.btn-lg.btn-primary.btn-block#login-button LogIn
+                                                span.input-group-addon#login-remember
+                                                    input(type="checkbox")
+                                                    p Remember

@@ -7,5 +7,7 @@ html(ng-app="shelter")
 		link(href="css/stylesheet.css" rel="stylesheet")
 		script(src="controller/index.js")
 	body
-		div(ng-view)
-	
+		ng-include(src="'Menu-Unauthorized.html'")
+		div(ng-controller="TestCtrl")
+			div(ng-view)
+		
