@@ -26,7 +26,9 @@ app.use(function(req, res, next) {
 		if (req.query.sessionId && res.locals.session && !content.data.hasOwnProperty('sessionId')) content.data.sessionId = req.query.sessionId;
 		console.log(content);
 
-		fs.readFile('./template/client/'+content.template+'.jade', function(err, tpl) {
+		send(content);
+
+		/*fs.readFile('./template/client/'+content.template+'.jade', function(err, tpl) {
 			if (err) {
 				console.log(err);
 				return send('bambambam... error, sry pplz');
@@ -35,7 +37,7 @@ app.use(function(req, res, next) {
 			var fn = jade.compile(tpl, {filename: './template/client/'+content.template+'.jade'});
 			var response = fn(content);
 			send(response);
-		});
+		});*/
 	};
 	next();
 });
