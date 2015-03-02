@@ -17,7 +17,7 @@ app.use("/css", express.static("./template/css"));
 app.use(function(req, res, next) {
 	var send = res.send.bind(res);
 	res.send = function(content) {
-		res.header({'Access-Control-Allow-Origin': '*'});
+		res.header({'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*'});
 		if (typeof content === 'string') return send(content);
 		if (!content.template) return send(content);
 		if (!content.hasOwnProperty('data')) content.data = {};
