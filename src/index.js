@@ -10,6 +10,7 @@ var app = express();
 db.connect('mongodb://'+config.db.IP+':'+config.db.PORT+'/'+config.db.DATABASE);
 
 // configure webserver
+app.use(bodyParser.json({limit: '500kb', type: 'application/json'}));
 app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}));
 app.use("/css", express.static("./template/css"));
 
